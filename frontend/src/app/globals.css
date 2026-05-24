@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:        #0a0b0e;
+  --surface:   #111318;
+  --border:    #1e2029;
+  --border-hi: #2a2d3a;
+  --text:      #e2e4ed;
+  --muted:     #5a5f72;
+  --accent:    #4f8ef7;
+  --accent-lo: #1a2a4a;
+  --green:     #22d3a0;
+  --yellow:    #f5c542;
+  --red:       #f05252;
+  --purple:    #9b6dff;
+  --font-ui:   'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 2px; }
+
+/* Status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+.badge-waiting    { background: #1e1a0a; color: var(--yellow); border: 1px solid #3a3010; }
+.badge-in_progress{ background: #0a1a2e; color: var(--accent);  border: 1px solid #1a3050; }
+.badge-blocked    { background: #1e0a0a; color: var(--red);    border: 1px solid #3a1010; }
+.badge-user_input { background: #1a0e2e; color: var(--purple); border: 1px solid #2e1a4a; }
+.badge-completed  { background: #0a1e18; color: var(--green);  border: 1px solid #103028; }
+.badge-cancelled  { background: #181820; color: var(--muted);  border: 1px solid var(--border); }
+.badge-pending    { background: #181820; color: var(--muted);  border: 1px solid var(--border); }
+.badge-failed     { background: #1e0a0a; color: var(--red);    border: 1px solid #3a1010; }
+
+/* Log line animation */
+@keyframes logIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.log-line { animation: logIn 0.2s ease; }
+
+/* Pulse dot */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.pulse { animation: pulse 1.5s infinite; }
