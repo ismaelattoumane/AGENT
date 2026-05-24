@@ -252,5 +252,5 @@ docker compose up -d
 
 ---
 
-[(C) 2026 ISMADVL- Tous droits réservés.](https://ismadev.free.nf)
+[&copy; 2026 ISMADVL- Tous droits réservés.](https://ismadev.free.nf)
 @ismaelattoumane
